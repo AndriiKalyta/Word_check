@@ -9,7 +9,9 @@
 </head>
   <body>
     <h1>English</h1>
-    <div class="row g-3 align-items-center">
+    
+    
+    <!--<div class="row g-3 align-items-center">
         <div class="col-1">
             <label for="car">Автомобіль</label>
         </div>
@@ -33,60 +35,159 @@
             <input type="text"  class="form-control" id="bike" value="">
           </div>
     </div>
-    <button type="submit" class="btn btn-primary mb-3" onclick="validate()">Первірети</button>
+    <button type="submit" class="btn btn-primary mb-3" onclick="validate()">Первірети</button>-->
 
 
    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script>
-        function validate() {
+        //массив
+        var array = [
+            { en: 'car', ua: 'авто'},
+            { en: 'bike', ua: 'мото'},
+            { en: 'bus', ua: 'автобус'}];
 
-            let car = 'car';
-            let bus = 'bus';
-            let bike = 'bike';
 
-            let carAnswer = document.getElementById('car');
-            let busAnswer = document.getElementById('bus');
-            let bikeAnswer = document.getElementById('bike');
+        //добавление в документ <div> с класами (row g-3 align-items-center)
+        let row1 = document.createElement('div');
+        row1.classList.add('row');
+        row1.classList.add('g-3');
+        row1.classList.add('align-items-center');
 
-            if (car === document.getElementById('car').value){
 
-                carAnswer.classList.remove('is-invalid');
-                carAnswer.classList.add('is-valid');
+        //добавление в документ <div> с класом (col-1)
+        let col1 = document.createElement('div');
+        col1.classList.add('col-1');
 
-            } else {
+        //добавление в документ <label> с значением  1 элемента масива ключа ua с значением 'авто'
+        const label1 = document.createElement('lebel');
+        label1.textContent = array[0].ua;
 
-                carAnswer.classList.remove('is-valid')
-                carAnswer.classList.add('is-invalid');
-            }
+        //добавление в документ <div> с класом (col-auto)
+        let colA1 = document.createElement('div');
+        colA1.classList.add('col-auto');
 
-            if (bus === document.getElementById('bus').value){
+        //добавление в документ <input> с id = isWord1
+        const input1 = document.createElement('input');
+        input1.id = 'isWord1';
+        input1.setAttribute('type', 'text');
+        input1.classList.add('form-control');
 
-                busAnswer.classList.remove('is-invalid');
-                busAnswer.classList.add('is-valid');
+        //<input type="text"  class="form-control" id="bike" value="">
+
+        let row2 = document.createElement('div');
+        row2.classList.add('row');
+        row2.classList.add('g-3');
+        row2.classList.add('align-items-center');
+
+        let col2 = document.createElement('div');
+        col2.classList.add('col-1');
+
+        //добавление в документ <label> с значением  2 элемента масива ключа ua с значением 'мото'
+        const label2 = document.createElement('lebel');
+        label2.textContent = array[1].ua;
+        
+        let colA2 = document.createElement('div');
+        colA2.classList.add('col-auto');
+
+        //добавление в документ <input> с id = isWord2
+        const input2 = document.createElement('input');
+        input2.id = 'isWord2'; 
+        input2.setAttribute('type', 'text');
+        input2.classList.add('form-control');
+
+        let row3 = document.createElement('div');
+        row3.classList.add('row');
+        row3.classList.add('g-3');
+        row3.classList.add('align-items-center');
+
+        let col3 = document.createElement('div');
+        col3.classList.add('col-1');
+
+        //добавление в документ <label> с значением  3 элемента масива ключа ua с значением 'автобус'
+        const label3 = document.createElement('lebel');
+        label3.textContent = array[2].ua;
+        
+        let colA3 = document.createElement('div');
+        colA3.classList.add('col-auto');
+
+        //добавление в документ <input> с id = isWord2
+        const input3 = document.createElement('input');
+        input3.id = 'isWord3';
+        input3.setAttribute('type', 'text');
+        input3.classList.add('form-control'); 
+
+        //добавление <button> с нужными класани и подключение функции
+        const button = document.createElement('button');
+        button.classList.add('btn');
+        button.classList.add('btn-primary');
+        button.classList.add('mb-3');
+        button.textContent = 'Перевірети';
+        button.setAttribute('type', 'submit');
+        button.setAttribute('onclick', 'validate()');
+        
+
+        //добавление в DOM первого комлекта слова с проверкой
+        document.body.appendChild(row1);
+        row1.appendChild(col1);
+        col1.appendChild(label1);
+        row1.appendChild(colA1);
+        colA1.appendChild(input1);
+
+        //добавление в DOM второго комлекта слова с проверкой
+        document.body.appendChild(row2);
+        row2.appendChild(col2);
+        col2.appendChild(label2);
+        row2.appendChild(colA2);
+        colA2.appendChild(input2);
+
+        //добавление в DOM третьего комлекта слова с проверкой
+        document.body.appendChild(row3);
+        row3.appendChild(col3);
+        col3.appendChild(label3);
+        row3.appendChild(colA3);
+        colA3.appendChild(input3);
+            
+        //добавление в DOM кнопки
+        document.body.appendChild(button);
+        
+        
+        function validate () {
+
+            let isWord1 = document.getElementById('isWord1').value;
+            let isWord2 = document.getElementById('isWord2').value;
+            let isWord3 = document.getElementById('isWord3').value;
+
+            if (isWord1 === array[0].en) {
+                input1.classList.remove('is-invalid');
+                input1.classList.add('is-valid');
                 
             } else {
-
-                busAnswer.classList.remove('is-valid')
-                busAnswer.classList.add('is-invalid');  
+                input1.classList.remove('is-valid');
+                input1.classList.add('is-invalid');
             }
 
-            if (bike === document.getElementById('bike').value){
-
-                bikeAnswer.classList.remove('is-invalid');
-                bikeAnswer.classList.add('is-valid');
+            if (isWord2 === array[1].en) {
+                input2.classList.remove('is-invalid');
+                input2.classList.add('is-valid');
 
             } else {
+                input2.classList.remove('is-valid');
+                input2.classList.add('is-invalid');
+            }
 
-                bikeAnswer.classList.remove('is-valid')
-                bikeAnswer.classList.add('is-invalid');  
+            if (isWord3 === array[2].en) {
+                input3.classList.remove('is-invalid');
+                input3.classList.add('is-valid');
+
+            } else {
+                input3.classList.remove('is-valid');
+                input3.classList.add('is-invalid');
             }
 
         }
-
-        //is-valid
-        //is-invalid
+       
     </script>
 </body>
 </html>
