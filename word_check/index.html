@@ -21,74 +21,53 @@
 
         for (const [key, val] of Object.entries(array)){
 
-            let row1 = document.createElement('div');
-            row1.classList.add('row');
-            row1.classList.add('g-3');
-            row1.classList.add('align-items-center');
+            let row = document.createElement('div');
+            row.classList.add('row');
+            row.classList.add('g-3');
+            row.classList.add('align-items-center');
 
-            let col1 = document.createElement('div');
-            col1.classList.add('col-1');
+            let col = document.createElement('div');
+            col.classList.add('col-1');
 
-            const label1 = document.createElement('lebel');
-            label1.textContent = val.ua;
+            const label = document.createElement('lebel');
+            label.textContent = val.ua;
 
-            let colA1 = document.createElement('div');
-            colA1.classList.add('col-auto');
+            let colA = document.createElement('div');
+            colA.classList.add('col-auto');
 
-            const input1 = document.createElement('input');
-            input1.id = key;
-            input1.setAttribute('type', 'text');
-            input1.classList.add('form-control');
+            const input = document.createElement('input');
+            input.id = key;
+            input.setAttribute('type', 'text');
+            input.classList.add('form-control');
 
-            document.body.appendChild(row1);
-            row1.appendChild(col1);
-            col1.appendChild(label1);
-            row1.appendChild(colA1);    
-            colA1.appendChild(input1);
+            document.body.appendChild(row);
+            row.appendChild(col);
+            col.appendChild(label);
+            row.appendChild(colA);    
+            colA.appendChild(input);
 
         }
 
         function validate(){
+        
+        for (const [key, val] of Object.entries(array)){
 
-        let answer1 = document.getElementById(array.indexOf(array[0])).value;
-        let answer2 = document.getElementById(array.indexOf(array[1])).value;
-        let answer3 = document.getElementById(array.indexOf(array[2])).value;
+            let answer = document.getElementById(key).value;
+            let input = document.getElementById(key);
 
-        let input1 = document.getElementById(array.indexOf(array[0]));
-        let input2 = document.getElementById(array.indexOf(array[1]));
-        let input3 = document.getElementById(array.indexOf(array[2]));
-
-        if (answer1 === array[0].en ) {
             
-            input1.classList.remove('is-invalid');
-            input1.classList.add('is-valid');
-            
-        } else {
-            input1.classList.remove('is-valid');
-            input1.classList.add('is-invalid');
+            if (val.en === answer) { 
+                
+                input.classList.remove('is-invalid');
+                input.classList.add('is-valid');
+
+            } else {
+                input.classList.remove('is-valid');
+                input.classList.add('is-invalid');
+            }
+            }
         }
-
-        if (answer2 === array[1].en ) {
-            
-            input2.classList.remove('is-invalid');
-            input2.classList.add('is-valid');
-            
-        } else {
-            input2.classList.remove('is-valid');
-            input2.classList.add('is-invalid');
-        }
-
-        if (answer3 === array[2].en ) {
-            
-            input3.classList.remove('is-invalid');
-            input3.classList.add('is-valid');
-            
-        } else {
-            input3.classList.remove('is-valid');
-            input3.classList.add('is-invalid');
-
-        }
-        }
+        
         const button = document.createElement('button');
         button.classList.add('btn');
         button.classList.add('btn-primary');
